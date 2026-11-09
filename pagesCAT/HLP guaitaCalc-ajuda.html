@@ -1,0 +1,83 @@
+<!--
+  Guaita Apps - Suite d'eines autònomes per a arquitectura, BIM i documentació.
+  Copyright (c) 2026 Jordi Subirós · SBS BiM Consulting
+  GNU Affero General Public License v3.0
+  SPDX-License-Identifier: AGPL-3.0-only
+  See LICENSE file for details
+-->
+<!DOCTYPE html>
+<html lang="ca"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#0B0D10">
+<title>guaitaCalc · Manual d’ús</title><meta name="author" content="SBS BiM Consulting, Jordi Subirós"><meta name="license" content="AGPL-3.0-only"><style>
+:root{--bg:#0B0D10;--fg:#E8EAED;--mut:#8A919B;--line:#232830;--card:#12151a;--accent:#C6FF00;--accent-2:#FF2ECC;--accent-3:#00E5FF;--accent-4:#FFE500}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.65 "Space Grotesk","IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:48px 48px;background-position:-1px -1px}
+a{color:var(--accent)}code,kbd,.mono{font-family:"IBM Plex Mono",ui-monospace,Consolas,monospace}
+code{background:#1b1f26;padding:1px 6px;border-radius:4px;font-size:.9em}
+kbd{background:#1b1f26;border:1px solid #2e3540;border-bottom-width:2px;border-radius:5px;padding:1px 7px;font-size:.85em}
+.wrap{max-width:1040px;margin:0 auto;padding:0 20px}
+header.hero{padding:56px 0 34px;border-bottom:1px solid var(--line);background:linear-gradient(180deg,rgba(11,13,16,.2),var(--bg))}
+.brand{display:flex;align-items:center;gap:12px;font-weight:700;letter-spacing:.18em;font-size:20px}
+.brand small{font:500 12px "IBM Plex Mono",monospace;letter-spacing:.1em;color:var(--mut);text-transform:lowercase}
+.cells{display:inline-grid;grid-template-columns:repeat(2,13px);gap:3px}
+.cells span{width:13px;height:13px;display:block}
+.cells span:nth-child(1){background:var(--accent)}.cells span:nth-child(2){background:var(--accent-2)}.cells span:nth-child(3){background:var(--accent-3)}.cells span:nth-child(4){background:var(--accent-4)}
+.tag{display:inline-block;margin:26px 0 8px;font:500 12px "IBM Plex Mono",monospace;color:var(--accent);border:1px solid var(--accent);padding:2px 10px;border-radius:99px;letter-spacing:.08em;text-transform:uppercase}
+h1{font-size:clamp(30px,5vw,48px);line-height:1.1;margin:.1em 0 .3em}
+.lead{color:var(--mut);max-width:70ch;font-size:18px}
+.layout{display:grid;grid-template-columns:230px 1fr;gap:36px;padding:34px 0}
+nav.toc{position:sticky;top:16px;align-self:start;font-size:14px;display:flex;flex-direction:column;gap:2px}
+nav.toc a{color:var(--mut);text-decoration:none;padding:5px 10px;border-left:2px solid var(--line)}
+nav.toc a:hover,nav.toc a.on{color:var(--accent);border-left-color:var(--accent)}
+section{padding:6px 0 26px;scroll-margin-top:12px}
+h2{font:500 12px "IBM Plex Mono",monospace;color:var(--accent);letter-spacing:.1em;text-transform:uppercase;margin:0}
+.st{font-size:28px;font-weight:700;margin:.15em 0 .5em}
+h3{margin:1.3em 0 .3em;font-size:18px}
+.note{border-left:3px solid var(--accent-3);background:var(--card);padding:10px 16px;border-radius:0 8px 8px 0;margin:14px 0}
+.note.warn{border-left-color:var(--accent-4)}.note.stop{border-left-color:var(--accent-2)}
+table.tbl{border-collapse:collapse;width:100%;margin:12px 0;font-size:15px}
+.tbl th,.tbl td{border:1px solid var(--line);padding:7px 10px;text-align:left;vertical-align:top}.tbl th{background:var(--card);font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--mut);text-transform:uppercase}
+ol.steps{padding-left:22px}ol.steps li{margin:6px 0}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin:14px 0}
+.card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px 16px}.card b{color:var(--accent)}
+details{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:10px 14px;margin:8px 0}summary{cursor:pointer;font-weight:600}
+footer{border-top:1px solid var(--line);padding:28px 0 46px;color:var(--mut);font-size:13px}
+.fb{display:flex;align-items:center;gap:8px;color:var(--fg);font-weight:600;margin-bottom:10px}
+.fb .cells{grid-template-columns:repeat(2,6px);gap:2px}.fb .cells span{width:6px;height:6px}
+.langs{margin-top:18px}.langs a{margin-right:14px}
+@media(max-width:800px){.layout{grid-template-columns:1fr}nav.toc{position:static;flex-direction:row;flex-wrap:wrap}}
+</style></head><body>
+<header class="hero"><div class="wrap"><div class="brand"><span class="cells"><span></span><span></span><span></span><span></span></span>GUAITA<small>guaitaCalc</small></div><span class="tag">Manual d’ús · v0.6</span><h1>guaitaCalc · Manual d’ús</h1><p class="lead">Calculadora científica i de fórmules d’arquitectura, estructures, urbanisme, CO₂, energia i economia. Un sol fitxer HTML, funciona sense connexió i tot el càlcul es fa al teu navegador.</p></div></header>
+<div class="wrap layout"><nav class="toc"><a href="#intro">Introducció</a><a href="#inst">Instal·lació i PWA</a><a href="#calc">Calculadora</a><a href="#form">Fórmules</a><a href="#cte">CTE (v0.6)</a><a href="#co2">Factors CO₂</a><a href="#eines">Eines matemàtiques</a><a href="#asp">Aspecte i projector</a><a href="#keys">Dreceres</a><a href="#priv">Privadesa</a><a href="#llic">Llicència</a><a href="#faq">Preguntes freqüents</a></nav><main><section id="intro"><h2>Introducció</h2><div class="st">Què és guaitaCalc</div>
+<p>guaitaCalc combina una calculadora (algebraica i RPN) amb <b>63 fórmules</b> organitzades en capítols desplegables: Estructures (24), Economia i comptabilitat (20), Urbanisme (10), CO₂ i energia (5) i Altres (4), a més d’un solucionador d’equacions i una gràfica de funcions. És una eina de <b>predimensionat orientatiu</b>.</p>
+<div class="note warn">Els resultats no substitueixen el càlcul ni la verificació normativa per tècnic competent.</div></section><section id="inst"><h2>Instal·lació i PWA</h2><div class="st">Instal·lació com a app (PWA)</div>
+<p>L’app es pot obrir directament (<code>guaitaCalc_0.6.html</code>) o servida des d’un servidor HTTP(S), com GitHub Pages. En aquest segon cas funciona com a <b>PWA</b>: es pot instal·lar i funciona sense connexió.</p>
+<ol class="steps"><li>Obre l’app des de la pàgina publicada (https).</li><li>Menú <b>Fitxer › Instal·la l’app</b> (apareix quan el navegador ho permet) o l’opció «Instal·la / Afegeix a la pantalla d’inici» del navegador.</li><li>Obre-la des de la icona: s’executa a pantalla completa i sense connexió.</li></ol>
+<div class="note">Si obres el fitxer des del disc (<code>file://</code>) l’app funciona igual, però no es pot instal·lar ni es registra la memòria cau fora de línia.</div></section><section id="calc"><h2>Calculadora</h2><div class="st">Calculadora</div>
+<ul><li><b>Mode:</b> Calculadora › Algebraica o RPN.</li><li><b>Unitat angular:</b> DEG, RAD o GRAD.</li><li><b>Teclat de funcions:</b> Bàsic, Científic o Avançat (sin, cos, tan, log, n!, eˣ…).</li><li><b>Constants…:</b> inserció de constants físiques i matemàtiques.</li><li><b>Fila de memòria</b> i <b>Cinta d’historial</b> amb subtotal Σ opcional; la cinta es pot copiar o exportar com a text.</li></ul>
+<p>El separador d’arguments de les funcions és <kbd>;</kbd> i la notació científica s’escriu amb <kbd>E</kbd>. L’avaluador és propi i no fa servir <code>eval</code>.</p></section><section id="form"><h2>Fórmules</h2><div class="st">Fórmules i eines de treball</div>
+<p>Obre una fórmula des del menú <b>Fórmules</b>, des de la llista (pestanya Fórmules en mòbil) o amb el cercador (<kbd>Ctrl</kbd>+<kbd>K</kbd>). També hi ha el capítol <b>CTE per DB</b>, que agrupa les fórmules per document bàsic.</p>
+<div class="cards"><div class="card"><b>Unitats</b><br>Toca la unitat d’un camp o d’un resultat per canviar-la.</div><div class="card"><b>Traça</b><br>Mostra la substitució pas a pas i s’exporta en Markdown o LaTeX.</div><div class="card"><b>Sensibilitat</b><br>Varia una variable i en mostra el resultat; es pot portar a la gràfica.</div><div class="card"><b>Llibreta</b><br>Desa càlculs («Desa a la llibreta») i exporta la llibreta en Markdown o JSON.</div><div class="card"><b>Preferides</b><br>Marca amb ★ les fórmules que fas servir sovint.</div><div class="card"><b>Sortida</b><br>Copia resultats, exporta en Markdown o imprimeix / PDF.</div></div>
+<p>Cada fórmula mostra la referència (norma i edició), una <b>ajuda</b> (💡) i, si cal, les seves <b>limitacions</b> (a l’aplicació i a les exportacions).</p></section><section id="cte"><h2>CTE (v0.6)</h2><div class="st">Fórmules CTE incorporades a la v0.6</div>
+<table class="tbl"><tr><th>Fórmula</th><th>Què calcula</th></tr>
+<tr><td>DB-HE5</td><td>Potència fotovoltaica mínima, Pmin = el menor de P1 = Fpr·S i P2 = 0,1·(0,5·Sc − Soc), a partir de 1.000 m² construïts.</td></tr>
+<tr><td>DB-HE1</td><td>Transmitància límit Ulim per element (murs, cobertes, buits) i zona climàtica; es compara amb la U calculada.</td></tr>
+<tr><td>Vent qe (DB-SE-AE)</td><td>qe = qb·ce·cp, amb zona eòlica A/B/C i grau d’aspror I–V.</td></tr>
+<tr><td>DB-SUA 1 escala</td><td>Contrapetjada, petjada, Blondel 2C+H, salt del tram i graons.</td></tr>
+<tr><td>DB-SUA 1 rampa</td><td>Pendent màxima (general o itinerari accessible), longitud de tram i replà.</td></tr></table>
+<div class="note stop"><b>Limitacions.</b> Els valors s’han llegit a través de resums i còpies de tercers, no dels PDF oficials del CTE. No inclou Klim, la taula de zones climàtiques (la zona és d’entrada manual), el vent amb la edició vigent del DB-SE-AE (s’usa la còpia de 2009) ni els canvis del DB-SUA de 2022 i 2024. Contrasta sempre amb el CTE vigent.</div></section><section id="co2"><h2>Factors CO₂</h2><div class="st">Importació de factors de CO₂</div>
+<p>Menú <b>Fitxer › Importa factors CO₂ (CSV, BC3)…</b>. Pots carregar factors propis (p. ex. ÖKOBAUDAT o ITeC) i fer-los servir a les fórmules de CO₂. <b>Esborra els factors importats</b> els elimina. Al repositori hi ha un exemple, <code>exemple_factors_CO2.csv</code>.</p></section><section id="eines"><h2>Eines matemàtiques</h2><div class="st">Solucionador i gràfica</div>
+<ul><li><b>Solucionador d’equacions:</b> arrels d’una equació (bisecció/Newton/secant), sistemes lineals, polinomis i resolució d’una fórmula per a una variable.</li><li><b>Gràfica de funcions:</b> fins a quatre funcions, zoom, arrels i extrems, i exportació. Les funcions trigonomètriques es representen en radians.</li></ul></section><section id="asp"><h2>Aspecte i projector</h2><div class="st">Aspecte, projector i so</div>
+<p>Menú <b>Visualització</b>: aspectes (skins) incloent Guaita, LCD, ambre i pla, tema clar (aspecte Guaita), <b>Mode projector</b> (<kbd>F8</kbd>, amb mida de lletra A+/A−), so de les tecles amb diversos perfils, volum i vibració, i <b>Idioma</b> (Català / English).</p></section><section id="keys"><h2>Dreceres</h2><div class="st">Dreceres de teclat</div>
+<table class="tbl"><tr><th>Drecera</th><th>Acció</th></tr><tr><td><kbd>Ctrl</kbd>+<kbd>K</kbd></td><td>Cerca fórmules</td></tr><tr><td><kbd>Enter</kbd> / <kbd>=</kbd></td><td>Calcula / ENTER</td></tr><tr><td><kbd>Esc</kbd></td><td>Esborra tot</td></tr><tr><td><kbd>⌫</kbd></td><td>Esborra l’últim</td></tr><tr><td><kbd>F8</kbd></td><td>Mode projector</td></tr><tr><td><kbd>Ctrl</kbd>+<kbd>P</kbd></td><td>Imprimeix / PDF</td></tr></table></section><section id="priv"><h2>Privadesa</h2><div class="st">Privadesa</div>
+<p>Tot el càlcul es fa <b>localment al navegador</b>. No hi ha servidors, comptes ni telemetria, i no es carrega cap recurs extern (tipus de lletra incrustats). L’historial, la llibreta i les preferències es desen al <code>localStorage</code> del teu dispositiu.</p></section><section id="llic"><h2>Llicència</h2><div class="st">Llicència i autoria</div>
+<p>© SBS BiM Consulting, Jordi Subirós. Programari lliure sota la <b>GNU Affero General Public License v3.0 només</b> (<code>AGPL-3.0-only</code>, sense «o versions posteriors»). El codi font és a <a href="https://github.com/subi2/guaitaCalc">github.com/subi2/guaitaCalc</a>; el text complet és al fitxer <code>LICENSE</code>.</p></section><section id="faq"><h2>Preguntes freqüents</h2><div class="st">Preguntes freqüents</div>
+<details><summary>Puc fer-la servir sense internet?</summary><p>Sí. És un sol fitxer HTML i, en versió PWA, es desa a la memòria cau del dispositiu.</p></details>
+<details><summary>Per què el resultat difereix del meu càlcul?</summary><p>Mira la referència i les limitacions de la fórmula: hi consten edició de la norma i simplificacions.</p></details>
+<details><summary>Com canvio l’idioma?</summary><p>Visualització › Idioma.</p></details>
+<details><summary>On es desen les meves dades?</summary><p>Només al teu navegador (<code>localStorage</code>). Exporta la llibreta si vols una còpia.</p></details></section></main></div>
+<footer><div class="wrap"><div class="fb"><span class="cells"><span></span><span></span><span></span><span></span></span>Guaita Apps · SBS BIM Consulting 2026</div>
+<p>© SBS BiM Consulting, Jordi Subirós · Llicència: <a href="https://www.gnu.org/licenses/agpl-3.0.html">AGPL-3.0-only</a> · <a href="https://github.com/subi2/guaitaCalc">github.com/subi2/guaitaCalc</a></p>
+<p>Guaita Apps es distribueix «tal com és», sense cap garantia. Les eines estan pensades desde la recerca i com a suport tècnic i educatiu; la verificació dels resultats i la responsabilitat derivada del seu ús recauen únicament sobre l'usuari final.</p><div class="langs"><a href="../pagesENG/HLP%20guaitaCalc-ajuda.html">English</a> · <a href="../index.html">Landing</a></div></div></footer><script>
+const L=[...document.querySelectorAll('nav.toc a')],S=L.map(a=>document.querySelector(a.getAttribute('href')));
+addEventListener('scroll',()=>{let i=0;S.forEach((s,k)=>{if(s&&s.getBoundingClientRect().top<120)i=k});L.forEach((a,k)=>a.classList.toggle('on',k===i))},{passive:true});
+</script></body></html>

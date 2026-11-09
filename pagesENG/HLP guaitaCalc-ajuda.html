@@ -1,0 +1,83 @@
+<!--
+  Guaita Apps - Suite d'eines autònomes per a arquitectura, BIM i documentació.
+  Copyright (c) 2026 Jordi Subirós · SBS BiM Consulting
+  GNU Affero General Public License v3.0
+  SPDX-License-Identifier: AGPL-3.0-only
+  See LICENSE file for details
+-->
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#0B0D10">
+<title>guaitaCalc · User manual</title><meta name="author" content="SBS BiM Consulting, Jordi Subirós"><meta name="license" content="AGPL-3.0-only"><style>
+:root{--bg:#0B0D10;--fg:#E8EAED;--mut:#8A919B;--line:#232830;--card:#12151a;--accent:#C6FF00;--accent-2:#FF2ECC;--accent-3:#00E5FF;--accent-4:#FFE500}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.65 "Space Grotesk","IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:48px 48px;background-position:-1px -1px}
+a{color:var(--accent)}code,kbd,.mono{font-family:"IBM Plex Mono",ui-monospace,Consolas,monospace}
+code{background:#1b1f26;padding:1px 6px;border-radius:4px;font-size:.9em}
+kbd{background:#1b1f26;border:1px solid #2e3540;border-bottom-width:2px;border-radius:5px;padding:1px 7px;font-size:.85em}
+.wrap{max-width:1040px;margin:0 auto;padding:0 20px}
+header.hero{padding:56px 0 34px;border-bottom:1px solid var(--line);background:linear-gradient(180deg,rgba(11,13,16,.2),var(--bg))}
+.brand{display:flex;align-items:center;gap:12px;font-weight:700;letter-spacing:.18em;font-size:20px}
+.brand small{font:500 12px "IBM Plex Mono",monospace;letter-spacing:.1em;color:var(--mut);text-transform:lowercase}
+.cells{display:inline-grid;grid-template-columns:repeat(2,13px);gap:3px}
+.cells span{width:13px;height:13px;display:block}
+.cells span:nth-child(1){background:var(--accent)}.cells span:nth-child(2){background:var(--accent-2)}.cells span:nth-child(3){background:var(--accent-3)}.cells span:nth-child(4){background:var(--accent-4)}
+.tag{display:inline-block;margin:26px 0 8px;font:500 12px "IBM Plex Mono",monospace;color:var(--accent);border:1px solid var(--accent);padding:2px 10px;border-radius:99px;letter-spacing:.08em;text-transform:uppercase}
+h1{font-size:clamp(30px,5vw,48px);line-height:1.1;margin:.1em 0 .3em}
+.lead{color:var(--mut);max-width:70ch;font-size:18px}
+.layout{display:grid;grid-template-columns:230px 1fr;gap:36px;padding:34px 0}
+nav.toc{position:sticky;top:16px;align-self:start;font-size:14px;display:flex;flex-direction:column;gap:2px}
+nav.toc a{color:var(--mut);text-decoration:none;padding:5px 10px;border-left:2px solid var(--line)}
+nav.toc a:hover,nav.toc a.on{color:var(--accent);border-left-color:var(--accent)}
+section{padding:6px 0 26px;scroll-margin-top:12px}
+h2{font:500 12px "IBM Plex Mono",monospace;color:var(--accent);letter-spacing:.1em;text-transform:uppercase;margin:0}
+.st{font-size:28px;font-weight:700;margin:.15em 0 .5em}
+h3{margin:1.3em 0 .3em;font-size:18px}
+.note{border-left:3px solid var(--accent-3);background:var(--card);padding:10px 16px;border-radius:0 8px 8px 0;margin:14px 0}
+.note.warn{border-left-color:var(--accent-4)}.note.stop{border-left-color:var(--accent-2)}
+table.tbl{border-collapse:collapse;width:100%;margin:12px 0;font-size:15px}
+.tbl th,.tbl td{border:1px solid var(--line);padding:7px 10px;text-align:left;vertical-align:top}.tbl th{background:var(--card);font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--mut);text-transform:uppercase}
+ol.steps{padding-left:22px}ol.steps li{margin:6px 0}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin:14px 0}
+.card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px 16px}.card b{color:var(--accent)}
+details{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:10px 14px;margin:8px 0}summary{cursor:pointer;font-weight:600}
+footer{border-top:1px solid var(--line);padding:28px 0 46px;color:var(--mut);font-size:13px}
+.fb{display:flex;align-items:center;gap:8px;color:var(--fg);font-weight:600;margin-bottom:10px}
+.fb .cells{grid-template-columns:repeat(2,6px);gap:2px}.fb .cells span{width:6px;height:6px}
+.langs{margin-top:18px}.langs a{margin-right:14px}
+@media(max-width:800px){.layout{grid-template-columns:1fr}nav.toc{position:static;flex-direction:row;flex-wrap:wrap}}
+</style></head><body>
+<header class="hero"><div class="wrap"><div class="brand"><span class="cells"><span></span><span></span><span></span><span></span></span>GUAITA<small>guaitaCalc</small></div><span class="tag">User manual · v0.6</span><h1>guaitaCalc · User manual</h1><p class="lead">Scientific calculator with formulas for architecture, structures, urban planning, CO₂, energy and economics. A single HTML file that works offline; all calculation happens in your browser.</p></div></header>
+<div class="wrap layout"><nav class="toc"><a href="#intro">Introduction</a><a href="#inst">Installation & PWA</a><a href="#calc">Calculator</a><a href="#form">Formulas</a><a href="#cte">CTE (v0.6)</a><a href="#co2">CO₂ factors</a><a href="#eines">Math tools</a><a href="#asp">Look & projector</a><a href="#keys">Shortcuts</a><a href="#priv">Privacy</a><a href="#llic">License</a><a href="#faq">FAQ</a></nav><main><section id="intro"><h2>Introduction</h2><div class="st">What guaitaCalc is</div>
+<p>guaitaCalc combines a calculator (algebraic and RPN) with <b>63 formulas</b> grouped in collapsible chapters: Structures (24), Economics and accounting (20), Urban planning (10), CO₂ and energy (5) and Other (4), plus an equation solver and a function plotter. It is a <b>preliminary sizing</b> tool.</p>
+<div class="note warn">Results do not replace calculation and code verification by a qualified professional.</div></section><section id="inst"><h2>Installation & PWA</h2><div class="st">Installing as an app (PWA)</div>
+<p>You can open the app directly (<code>guaitaCalc_0.6.html</code>) or serve it from an HTTP(S) server such as GitHub Pages. In the latter case it works as a <b>PWA</b>: installable and usable offline.</p>
+<ol class="steps"><li>Open the app from the published page (https).</li><li>Use <b>File › Install the app</b> (shown when the browser allows it) or the browser’s “Install / Add to home screen”.</li><li>Launch it from its icon: it runs full-screen and offline.</li></ol>
+<div class="note">Opening the file from disk (<code>file://</code>) works too, but it cannot be installed and no offline cache is registered.</div></section><section id="calc"><h2>Calculator</h2><div class="st">Calculator</div>
+<ul><li><b>Mode:</b> Calculator › Algebraic or RPN.</li><li><b>Angle unit:</b> DEG, RAD or GRAD.</li><li><b>Function keypad:</b> Basic, Scientific or Advanced (sin, cos, tan, log, n!, eˣ…).</li><li><b>Constants…:</b> physical and mathematical constants.</li><li><b>Memory row</b> and <b>History tape</b> with optional Σ subtotal; the tape can be copied or exported as text.</li></ul>
+<p>The function argument separator is <kbd>;</kbd> and scientific notation is typed with <kbd>E</kbd>. The evaluator is custom and never uses <code>eval</code>.</p></section><section id="form"><h2>Formulas</h2><div class="st">Formulas and working tools</div>
+<p>Open a formula from the <b>Formulas</b> menu, from the list (Formulas tab on mobile) or with search (<kbd>Ctrl</kbd>+<kbd>K</kbd>). The <b>CTE by DB</b> chapter groups formulas by Spanish building-code document.</p>
+<div class="cards"><div class="card"><b>Units</b><br>Tap the unit of a field or result to change it.</div><div class="card"><b>Trace</b><br>Shows the step-by-step substitution; export to Markdown or LaTeX.</div><div class="card"><b>Sensitivity</b><br>Varies one variable and shows the result; can be sent to the plotter.</div><div class="card"><b>Notebook</b><br>Save calculations (“Save to notebook”); export it as Markdown or JSON.</div><div class="card"><b>Favourites</b><br>Mark frequently used formulas with ★.</div><div class="card"><b>Output</b><br>Copy results, export Markdown or print / PDF.</div></div>
+<p>Each formula shows its reference (code and edition), a <b>tip</b> (💡) and, where needed, its <b>limitations</b> (in the app and in exports).</p></section><section id="cte"><h2>CTE (v0.6)</h2><div class="st">CTE formulas added in v0.6</div>
+<table class="tbl"><tr><th>Formula</th><th>What it computes</th></tr>
+<tr><td>DB-HE5</td><td>Minimum photovoltaic power, Pmin = the lesser of P1 = Fpr·S and P2 = 0.1·(0.5·Sc − Soc), from 1,000 m² built area.</td></tr>
+<tr><td>DB-HE1</td><td>Limit transmittance Ulim per element (walls, roofs, openings) and climatic zone; compared with the calculated U.</td></tr>
+<tr><td>Wind qe (DB-SE-AE)</td><td>qe = qb·ce·cp, with wind zone A/B/C and roughness grade I–V.</td></tr>
+<tr><td>DB-SUA 1 stair</td><td>Riser, tread, Blondel 2R+T, flight rise and steps.</td></tr>
+<tr><td>DB-SUA 1 ramp</td><td>Maximum slope (general or accessible route), flight length and landing.</td></tr></table>
+<div class="note stop"><b>Limitations.</b> Values were read from summaries and third-party copies, not from the official CTE PDFs. Not included: Klim, the climatic-zone table (the zone is a manual input), wind with the current DB-SE-AE edition (a 2009 copy is used) and the 2022 and 2024 DB-SUA changes. Always check against the current code.</div></section><section id="co2"><h2>CO₂ factors</h2><div class="st">Importing CO₂ factors</div>
+<p>Menu <b>File › Import CO₂ factors (CSV, BC3)…</b>. Load your own factors (e.g. ÖKOBAUDAT or ITeC) and use them in the CO₂ formulas. <b>Delete imported factors</b> removes them. The repository includes a sample, <code>exemple_factors_CO2.csv</code>.</p></section><section id="eines"><h2>Math tools</h2><div class="st">Solver and plotter</div>
+<ul><li><b>Equation solver:</b> equation roots (bisection/Newton/secant), linear systems, polynomials and solving a formula for one variable.</li><li><b>Function plotter:</b> up to four functions, zoom, roots and extrema, and export. Trigonometric functions are plotted in radians.</li></ul></section><section id="asp"><h2>Look & projector</h2><div class="st">Look, projector and sound</div>
+<p><b>View</b> menu: skins (Guaita, LCD, amber, flat and more), light theme (Guaita skin), <b>Projector mode</b> (<kbd>F8</kbd>, with A+/A− font size), key sounds with several profiles, volume and haptics, and <b>Language</b> (Català / English).</p></section><section id="keys"><h2>Shortcuts</h2><div class="st">Keyboard shortcuts</div>
+<table class="tbl"><tr><th>Shortcut</th><th>Action</th></tr><tr><td><kbd>Ctrl</kbd>+<kbd>K</kbd></td><td>Search formulas</td></tr><tr><td><kbd>Enter</kbd> / <kbd>=</kbd></td><td>Calculate / ENTER</td></tr><tr><td><kbd>Esc</kbd></td><td>Clear all</td></tr><tr><td><kbd>⌫</kbd></td><td>Delete last</td></tr><tr><td><kbd>F8</kbd></td><td>Projector mode</td></tr><tr><td><kbd>Ctrl</kbd>+<kbd>P</kbd></td><td>Print / PDF</td></tr></table></section><section id="priv"><h2>Privacy</h2><div class="st">Privacy</div>
+<p>All calculation happens <b>locally in your browser</b>. No servers, accounts or telemetry, and no external resources are loaded (fonts are embedded). History, notebook and preferences are stored in your device’s <code>localStorage</code>.</p></section><section id="llic"><h2>License</h2><div class="st">License and authorship</div>
+<p>© SBS BiM Consulting, Jordi Subirós. Free software under the <b>GNU Affero General Public License v3.0 only</b> (<code>AGPL-3.0-only</code>, no “or later”). Source code at <a href="https://github.com/subi2/guaitaCalc">github.com/subi2/guaitaCalc</a>; full text in the <code>LICENSE</code> file.</p></section><section id="faq"><h2>FAQ</h2><div class="st">FAQ</div>
+<details><summary>Can I use it offline?</summary><p>Yes. It is a single HTML file and, as a PWA, it is cached on the device.</p></details>
+<details><summary>Why does the result differ from my own calculation?</summary><p>Check the formula’s reference and limitations: they state the code edition and simplifications.</p></details>
+<details><summary>How do I change the language?</summary><p>View › Language.</p></details>
+<details><summary>Where is my data stored?</summary><p>Only in your browser (<code>localStorage</code>). Export the notebook if you want a copy.</p></details></section></main></div>
+<footer><div class="wrap"><div class="fb"><span class="cells"><span></span><span></span><span></span><span></span></span>Guaita Apps · SBS BIM Consulting 2026</div>
+<p>© SBS BiM Consulting, Jordi Subirós · License: <a href="https://www.gnu.org/licenses/agpl-3.0.html">AGPL-3.0-only</a> · <a href="https://github.com/subi2/guaitaCalc">github.com/subi2/guaitaCalc</a></p>
+<p>Guaita Apps es distribueix «tal com és», sense cap garantia. Les eines estan pensades desde la recerca i com a suport tècnic i educatiu; la verificació dels resultats i la responsabilitat derivada del seu ús recauen únicament sobre l'usuari final.<br><em>Guaita Apps is distributed “as is”, without any warranty. The tools are designed from research and as technical and educational support; verification of the results and responsibility arising from their use rest solely with the end user.</em></p><div class="langs"><a href="../pagesCAT/HLP%20guaitaCalc-ajuda.html">Català</a> · <a href="../index.html">Landing</a></div></div></footer><script>
+const L=[...document.querySelectorAll('nav.toc a')],S=L.map(a=>document.querySelector(a.getAttribute('href')));
+addEventListener('scroll',()=>{let i=0;S.forEach((s,k)=>{if(s&&s.getBoundingClientRect().top<120)i=k});L.forEach((a,k)=>a.classList.toggle('on',k===i))},{passive:true});
+</script></body></html>
