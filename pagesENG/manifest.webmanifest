@@ -1,7 +1,7 @@
 {
  "name": "guaitaCalc",
  "short_name": "guaitaCalc",
- "start_url": "guaitaCalc_0.6.html",
+ "start_url": "guaitaCalc_0.7.html",
  "display": "standalone",
  "background_color": "#0B0D10",
  "theme_color": "#0B0D10",
@@ -18,7 +18,7 @@
    "purpose": "any maskable"
   }
  ],
- "id": "./guaitaCalc_0.6.html",
+ "id": "./guaitaCalc_0.7.html",
  "scope": "./",
  "lang": "en",
  "description": "Scientific calculator with architecture, structures, urban planning and CO₂ formulas — Guaita Apps"
