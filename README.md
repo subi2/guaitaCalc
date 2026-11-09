@@ -3,7 +3,7 @@
   Copyright (c) 2026 Jordi Subirós · SBS BiM Consulting
   SPDX-License-Identifier: AGPL-3.0-only
 -->
-# guaitaCalc v0.7
+# guaitaCalc v0.7.1
 
 [Català](#català) · [English](#english) · Llicència / License: **AGPL-3.0-only** · © SBS BiM Consulting, Jordi Subirós
 
@@ -20,12 +20,12 @@ Calculadora científica i de fórmules d'**arquitectura, estructures, urbanisme,
 - Solucionador d'equacions i gràfica de funcions.
 - Importació de factors de CO₂ (CSV, BC3); exemple: [`exemple_factors_CO2.csv`](exemple_factors_CO2.csv).
 - Aspectes (skins), mode projector (`F8`), so de tecles, interfície **CA / EN**.
-- Novetats v0.7: valors CTE verificats amb els PDF oficials; noves fórmules (zona climàtica Anejo B, DB-HE1 Klim, neu sk de capitals i qn, DB-SUA 1 barana); perfils IPN, HEA, HEM i UPN 320–400 (derivats del prontuari ArcelorMittal 2023); importació del CSV d'ÖKOBAUDAT 2024 (codificació Windows-1252); pantalla de benvinguda i enllaç de patrocini.
+- Novetats v0.7: valors CTE verificats amb els PDF oficials; noves fórmules (zona climàtica Anejo B, DB-HE1 Klim, neu sk de capitals i qn, DB-SUA 1 barana); perfils IPN, HEA, HEM i UPN 320–400 (derivats del prontuari ArcelorMittal 2023); importació del CSV d'ÖKOBAUDAT 2024 (codificació Windows-1252); enllaç de patrocini a la pantalla de càlcul i a «Quant a»; v0.7.1: sense zoom per doble toc a iPhone.
 - Des de la v0.6: DB-HE5 potència FV mínima, DB-HE1 Ulim, vent qe (DB-SE-AE), DB-SUA 1 escales i rampes.
 
 ### Ús
 - **Landing:** [`index.html`](index.html) (enllaça a la versió CAT i ENG i a les ajudes).
-- **Català:** [`pagesCAT/guaitaCalc_0.7.html`](pagesCAT/guaitaCalc_0.7.html) · ajuda: [`pagesCAT/HLP guaitaCalc-ajuda.html`](pagesCAT/HLP%20guaitaCalc-ajuda.html)
+- **Català:** [`pagesCAT/guaitaCalc_0.7.1.html`](pagesCAT/guaitaCalc_0.7.1.html) · ajuda: [`pagesCAT/HLP guaitaCalc-ajuda.html`](pagesCAT/HLP%20guaitaCalc-ajuda.html)
 - **PWA:** serveix el repositori per HTTPS (p. ex. GitHub Pages: *Settings › Pages › main / root*) i instal·la l'app des del navegador. Els manifests i els *service workers* són dins de `pagesCAT/` i `pagesENG/`.
 - També es pot obrir directament el fitxer HTML des del disc (sense instal·lació PWA).
 
@@ -63,12 +63,12 @@ Scientific calculator with formulas for **architecture, structures, urban planni
 - Equation solver and function plotter.
 - CO₂ factor import (CSV, BC3); sample: [`exemple_factors_CO2.csv`](exemple_factors_CO2.csv).
 - Skins, projector mode (`F8`), key sounds, **CA / EN** interface.
-- New in v0.7: CTE values checked against the official PDFs; new formulas (Annex B climate zone, DB-HE1 Klim, snow sk of capitals and qn, DB-SUA 1 guard height); IPN, HEA, HEM and UPN 320–400 profiles (derived from the ArcelorMittal 2023 handbook); ÖKOBAUDAT 2024 CSV import (Windows-1252 encoding); welcome screen and sponsor link.
+- New in v0.7: CTE values checked against the official PDFs; new formulas (Annex B climate zone, DB-HE1 Klim, snow sk of capitals and qn, DB-SUA 1 guard height); IPN, HEA, HEM and UPN 320–400 profiles (derived from the ArcelorMittal 2023 handbook); ÖKOBAUDAT 2024 CSV import (Windows-1252 encoding); sponsor link on the calculator screen and in About; v0.7.1: no double-tap zoom on iPhone.
 - Since v0.6: DB-HE5 minimum PV power, DB-HE1 Ulim, wind qe (DB-SE-AE), DB-SUA 1 stairs and ramps.
 
 ### Usage
 - **Landing:** [`index.html`](index.html) (links to the CAT and ENG versions and help).
-- **English:** [`pagesENG/guaitaCalc_0.7.html`](pagesENG/guaitaCalc_0.7.html) · help: [`pagesENG/HLP guaitaCalc-ajuda.html`](pagesENG/HLP%20guaitaCalc-ajuda.html)
+- **English:** [`pagesENG/guaitaCalc_0.7.1.html`](pagesENG/guaitaCalc_0.7.1.html) · help: [`pagesENG/HLP guaitaCalc-ajuda.html`](pagesENG/HLP%20guaitaCalc-ajuda.html)
 - **PWA:** serve the repository over HTTPS (e.g. GitHub Pages: *Settings › Pages › main / root*) and install the app from the browser. Manifests and service workers live inside `pagesCAT/` and `pagesENG/`.
 - You can also open the HTML file directly from disk (no PWA install).
 
