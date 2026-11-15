@@ -3,6 +3,8 @@
   Copyright (c) 2026 Jordi Subirós · SBS BiM Consulting
   SPDX-License-Identifier: AGPL-3.0-only
 -->
+<p align="left"><img src="icon.svg" width="96" alt="guaitaCalc"></p>
+
 # guaitaCalc v0.7.1
 
 [Català](#català) · [English](#english) · Llicència / License: **AGPL-3.0-only** · © SBS BiM Consulting, Jordi Subirós

@@ -50,7 +50,7 @@ input,select{font:inherit;color:var(--text)}
 #app-header{display:flex;align-items:center;gap:10px;padding:7px 14px 6px;background:var(--bg-deep);border-bottom:2px solid var(--accent-line);flex:none;position:relative;z-index:150}
 .brand{display:flex;align-items:center;gap:8px;font:900 17px 'Arial Black',system-ui,sans-serif;letter-spacing:1.5px;text-transform:uppercase;color:var(--accent-text);white-space:nowrap}
 .brand small{font:500 12px 'IBM Plex Mono',monospace;letter-spacing:.1em;color:var(--text-mut)}
-.cells{display:grid;grid-template-columns:7px 7px;gap:2px;flex:none}
+.ico{width:26px;height:26px;flex:none;display:block;border-radius:5px}
 .cells i{display:block;width:7px;height:7px}
 .cells i:nth-child(1){background:#D6FB41}.cells i:nth-child(2){background:#FF2ECC}.cells i:nth-child(3){background:#00E5FF}.cells i:nth-child(4){background:#FFE500}
 #app-menus{display:flex;gap:1px;margin-left:4px}
@@ -381,7 +381,7 @@ html,body,button,.keys,.keys *,.chip,a{touch-action:manipulation;-webkit-tap-hig
 <body data-v="calc">
 <div id="app-header">
  <button id="hamb" aria-label="Menú">☰</button>
- <span class="brand"><span class="cells"><i></i><i></i><i></i><i></i></span>GUAITA<small>CALC v0.7.1</small></span>
+ <span class="brand"><svg class="ico" viewBox="0 0 512 512" aria-hidden="true"><rect width="512" height="512" fill="#0B0D10"/><rect x="100" y="100" width="148" height="148" fill="#DDFF3C"/><rect x="264" y="100" width="148" height="148" fill="#FF2BB8"/><rect x="100" y="264" width="148" height="148" fill="#00E5FF"/><rect x="264" y="264" width="148" height="148" fill="#FFE600"/><g fill="#0B0D10"><rect x="134.04" y="165.49" width="79.92" height="17.02"/><rect x="165.49" y="134.04" width="17.02" height="79.92"/></g><g fill="#0B0D10"><path d="M302.04 138.04L373.96 209.96M302.04 209.96L373.96 138.04" stroke="#0B0D10" stroke-width="17.02" fill="none"/></g><g fill="#0B0D10"><rect x="134.04" y="329.49" width="79.92" height="17.02"/><circle cx="174.00" cy="306.83" r="11.91"/><circle cx="174.00" cy="369.17" r="11.91"/></g><g fill="#0B0D10"><rect x="298.04" y="311.62" width="79.92" height="17.02"/><rect x="298.04" y="347.36" width="79.92" height="17.02"/></g></svg>GUAITA<small>CALC v0.7.1</small></span>
  <nav id="app-menus"></nav>
  <span class="sp"></span>
  <button class="chip" id="ang">DEG</button>
